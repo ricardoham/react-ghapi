@@ -5,6 +5,7 @@ This is a react graphQL application with Apollo Client which gets the data with 
 ## To run this application:
 
 - npm install
+- npm start
 - go to http://localhost:3000/
 
 ## Features:
