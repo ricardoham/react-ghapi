@@ -17,5 +17,12 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
-  rules: {},
+  rules: {
+    '@typescript-eslint/explicit-module-boundary-types': [
+      'off',
+      {
+        allowedNames: ['ignoredFunctionName', 'ignoredMethodName'],
+      },
+    ],
+  },
 };
