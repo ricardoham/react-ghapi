@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { REPOSITORY } from './graphql/query';
 import { Repository } from 'model/repository';
+import Button from 'components/Button';
 
 import './App.css';
 
@@ -28,6 +29,7 @@ function App() {
           <div>{item.forkCount}</div>
         </div>
       ))}
+      <Button text="Next" onClick={() => console.log('CLICKED!')} />
     </div>
   );
 }
