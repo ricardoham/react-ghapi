@@ -1,10 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { REPOSITORY } from './graphql/query';
+import { REPOSITORY } from '../../graphql/query';
 import Button from 'components/Button';
 import List from 'components/List';
+import Loader from 'components/Loader';
 
-import './App.css';
+import { Container } from './styles';
 
 function App() {
   const { loading, error, data } = useQuery(REPOSITORY, {
@@ -18,14 +19,13 @@ function App() {
   });
 
   if (error) return <div>Error {error.message} </div>;
-  if (loading) return <div>Loading</div>;
 
   return (
-    <div className="App">
-      <List data={data.search.nodes} />
+    <Container>
+      {loading ? <Loader /> : <List data={data.search.nodes} />}
       <Button text="Previous" onClick={() => console.log('CLICKED!')} />
       <Button text="Next" onClick={() => console.log('CLICKED!')} />
-    </div>
+    </Container>
   );
 }
 

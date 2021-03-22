@@ -5,7 +5,7 @@ import { IconContext } from 'react-icons/lib';
 
 import { client } from './graphql/client';
 import './index.css';
-import App from './App';
+import App from './pages/Home/App';
 import StyledGlobal from './globalStyles';
 import reportWebVitals from './reportWebVitals';
 
