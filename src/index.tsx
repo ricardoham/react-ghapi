@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from '@apollo/client';
+import { IconContext } from 'react-icons/lib';
+
 import { client } from './graphql/client';
 import './index.css';
 import App from './App';
@@ -11,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <StyledGlobal />
-      <App />
+      <IconContext.Provider value={{ className: 'icons' }}>
+        <App />
+      </IconContext.Provider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root'),

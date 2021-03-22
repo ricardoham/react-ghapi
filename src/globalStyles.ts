@@ -42,6 +42,10 @@ const StyledGlobal = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  .icons {
+    margin-right: 4px;
+  }
 `;
 
 export default StyledGlobal;

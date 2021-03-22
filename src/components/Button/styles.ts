@@ -10,6 +10,7 @@ export const StyledButton = styled.button<StyledProps>`
   cursor: pointer;
   border-radius: 4px;
   padding: 8px 12px;
+  margin-right: 8px;
   font-weight: 500;
   color: #fff;
   text-transform: uppercase;

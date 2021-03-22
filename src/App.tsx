@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { REPOSITORY } from './graphql/query';
-import { Repository } from 'model/repository';
 import Button from 'components/Button';
+import List from 'components/List';
 
 import './App.css';
 
@@ -22,13 +22,8 @@ function App() {
 
   return (
     <div className="App">
-      {data.search.nodes.map((item: Repository) => (
-        <div key={item.id}>
-          <div>{item.name}</div>
-          <div>{item.stargazerCount}</div>
-          <div>{item.forkCount}</div>
-        </div>
-      ))}
+      <List data={data.search.nodes} />
+      <Button text="Previous" onClick={() => console.log('CLICKED!')} />
       <Button text="Next" onClick={() => console.log('CLICKED!')} />
     </div>
   );
