@@ -5,7 +5,6 @@ import { Variables } from 'model/variables';
 import Button from 'components/Button';
 import List from 'components/List';
 import Loader from 'components/Loader';
-
 import { Container } from './styles';
 
 function App() {
