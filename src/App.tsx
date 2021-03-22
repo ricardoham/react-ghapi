@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useQuery } from '@apollo/client';
+import { REPOSITORY } from './graphql/query';
+import { Repository } from 'model/repository';
+
 import './App.css';
 
 function App() {
+  const { loading, error, data } = useQuery(REPOSITORY, {
+    variables: {
+      queryString: 'react sort:stars',
+      after: null,
+      first: 10,
+      before: null,
+      last: null,
+    },
+  });
+
+  if (error) return <div>Error {error.message} </div>;
+  if (loading) return <div>Loading</div>;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data.search.nodes.map((item: Repository) => (
+        <div key={item.id}>
+          <div>{item.name}</div>
+          <div>{item.stargazerCount}</div>
+          <div>{item.forkCount}</div>
+        </div>
+      ))}
     </div>
   );
 }
