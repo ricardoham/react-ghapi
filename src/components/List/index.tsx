@@ -8,8 +8,6 @@ interface Props {
 }
 
 const List = ({ data }: Props) => {
-  console.log('data', data);
-
   return (
     <StyledList>
       <HeaderList>
